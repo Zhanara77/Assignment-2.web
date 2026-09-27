@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #f7f8fa;
+    color: #222;
+}
+
+h1 {
+    color: #263b63;
+}
+
+.articles {
+    display: grid;
+    gap: 15px;
+}
+
+.item {
+    min-width: 0;
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: white;
+    border: 1px solid #d5dbe5;
+    border-radius: 8px;
+}
+
+.picture {
+    flex: 0 0 70px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3d6edb;
+    color: white;
+    font-size: 24px;
+    border-radius: 6px;
+}
+
+.item-content {
+    min-width: 0;
+    flex: 1;
+}
+
+.item-content h2 {
+    margin-top: 0;
+    color: #263b63;
+}
+
+.item-content p {
+    margin-bottom: 8px;
+}
+
+.item-content time {
+    color: #777;
+    font-size: 14px;
+}
+
+/* 1. Grid mode - change the class to see this layout */
+.grid-mode {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+/* 2. List mode - same HTML, only the class changes */
+.list-mode {
+    grid-template-columns: 1fr;
+}
+
+.list-mode .item {
+    align-items: center;
+}
+
+.list-mode .item-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.list-mode .item-content h2 {
+    margin: 0;
+}
+
+.list-mode .item-content p {
+    margin: 0;
+    flex: 1;
+}
+
+.list-mode .item-content time {
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+/* 3. Magazine mode - one item becomes the lead item */
+.magazine-mode {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(8rem, auto);
+}
+
+.magazine-mode .item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    flex-direction: column;
+}
+
+.magazine-mode .item:first-child .picture {
+    flex-basis: auto;
+    min-height: 120px;
+}
+
+.magazine-mode .item:first-child .item-content {
+    flex: 1;
+}
